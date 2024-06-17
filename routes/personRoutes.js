@@ -93,7 +93,8 @@ router.delete('/:id',async(req,res) =>{
         console.log(error);
         res.status(404).json({ error: 'Internal Server Error' });
     }
-})
+}) 
+// git command AND deployment  of project for every one 
 
     module.exports = router;
     
