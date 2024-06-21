@@ -7,7 +7,7 @@ router.post('/',async(req,res) => {
     try{
         const data = req.body // assuming the request body contains mongoose model and it get all the input data initally here then to databses 
     
-        // create a newPerson using mongoose model // using this we can store upcoming data to define fields in mongoose  parameter check it satisfaction and store in database
+    // create a newPerson using mongoose model // using this we can store upcoming data to define fields in mongoose  parameter check it satisfaction and store in database
         const newPerson = new person(data);
         const response = await newPerson.save();
         console.log('data saved');
@@ -18,7 +18,7 @@ router.post('/',async(req,res) => {
           res.status(500).json({error:'Internal Server Error'});
         }
     })
-
+                 
     router.get('/',async(req,res)=> {
         try{
             const data = await person.find();

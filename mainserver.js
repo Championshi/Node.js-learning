@@ -10,10 +10,13 @@
 const express = require('express')
 const app = express();
 const db = require('./db.js');// database server 
+require('dotenv').config();
 // const MenuItem = require('./models/menu.js')
 
 const bodyParser = require('body-parser'); 
 app.use(bodyParser.json());
+
+const PORT = process.env.PORT || 3000;
 
 
 const person = require('./models/Person.js'); // model created  for the defined user input / output or say rules are defined in this 
@@ -179,7 +182,8 @@ const personRoutes = require('./routes/personRoutes.js');
 //use the router files
 app.use('/person', personRoutes);
 
-app.listen(3000,function(){
+
+app.listen(PORT,function(){
     console.log('listening to port 3000')// if we want to know our server is live use console in this
 })
 

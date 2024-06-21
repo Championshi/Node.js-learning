@@ -1,10 +1,24 @@
 //mongoose provide communication between node.js and databases(mongodb)
 //like in node.js if we start server we got //localhost:3000/any name  at server same happen in mongodb
 //momgodb has also it's own server and its port is ---> mongodb://localhost:27017/mydatabase(any name)
+// const mongoose = require('mongoose');
+//const mongoUrl = 'mongodb://localhost:27017/hotel'; // here we store data in hotel name database ==> local server  of DB mongoDB
+// const mongoUrl = process.env.MONGODB_URL_LOCAL //  .env file for local database excess in .env file just above this is not a good practice but it can be done using that also
 const mongoose = require('mongoose');
-const mongoUrl = 'mongodb://localhost:27017/hotel'; // here we store data in hotel name database
+require('dotenv').config();
+
+const mongoUrl = process.env.MONGODB_URL;  // for global database excess in .env file 
+
+//************************HOSTING SERVER IN NODE.JS  BEGINING TO THE END ***********************************GLOBAL SERVER******************/
+// ALL DATA OPERATION IS PERFORMED IN A LOCAL DATABASE, SO LETS HOST OUR DATABASE SERVER AND MAKE OUR DB ONLINE PRESENCE  AND ACESSIBLE TO EVERY ONE 
+// MONGODB ATLAS PROVIDES A FREE-CLUSTER FOR USERS WHERE YOU CAN HOST YOUR DATABASE FOR FREE
+
+/*************************************THIS IS GLOBAL DATABASE SERVER  */
+//const mongoUrl = 'mongodb+srv://abhi629941:kumar246@clusternode.ojdixue.mongodb.net/?retryWrites=true&w=majority'//=> but this is not good practice in company you need  to make seperate file for url 
+//which is .ENV FILE
 
 // setup mongodb connection URL
+
 mongoose.connect(mongoUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true
